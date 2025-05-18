@@ -1,0 +1,246 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <meta name="description" content="">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:alt" content="">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body class="bg-image" style="background-image:url('img/bg.webp')">
+<div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); z-index: -1;">
+<!--Nav Bar Start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2  mb-5">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">POS</span>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark  m-2 " onclick="navigateTo('customer') ">Customer</button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark m-2" onclick="navigateTo('item')">Items</button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark m-2" onclick="navigateTo('placeOrder')">Order</button>
+            </li><li class="nav-item">
+                <button type="button" class="btn btn-dark m-2 "onclick="navigateTo('orderHistory')">Order-History</button>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<!--Nav END-->
+<!--Customer Start-->
+<section id="customer">
+    <div class="container border  p-5 mb-2 bg-dark text-white" style="width: 500px">
+        <div class="form-group">
+            <label for="cId" class="pb-2">Customer ID</label>
+            <input type="text" class="form-control mb-4 " id="cId" aria-describedby="emailHelp"
+                   placeholder="C001">
+        </div>
+        <div class="form-group">
+            <label for="name" class="pb-2">Name</label>
+            <input type="text" class="form-control mb-4" id="name" aria-describedby="emailHelp"
+                   placeholder="anju">
+        </div>
+        <div class="form-group">
+            <label for="tel" class="pb-2">Telephone</label>
+            <input type="text" class="form-control mb-4" id="tel" aria-describedby="emailHelp"
+                   placeholder="077......">
+        </div>
+        <div class="grid text-center">
+            <button type="button" class="btn btn-primary m-2">Save</button>
+            <button type="button" class="btn btn-success m-2">Update</button>
+            <button type="button" class="btn btn-danger m-2">Delete</button>
+        </div>
+
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" class="col-1">ID</th> <!-- 3 columns wide -->
+                <th scope="col" class="col-3">NAME</th> <!-- 4 columns wide -->
+                <th scope="col" class="col-2">TEL</th> <!-- 4 columns wide -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td>C001</td>
+                <td>Doe</td>
+                <td>0740025243</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+<!--Customer End-->
+<!--Item Start-->
+<section id="item">
+    <div class="container border  p-5 mb-2 bg-dark text-white" style="width: 500px">
+        <div class="form-group">
+            <label for="iId" class="pb-2">Item ID</label>
+            <input type="text" class="form-control mb-4 " id="iId" aria-describedby="emailHelp"
+                   placeholder="I001">
+        </div>
+        <div class="form-group">
+            <label for="item-name" class="pb-2">Item</label>
+            <input type="text" class="form-control mb-4" id="item-name" aria-describedby="emailHelp"
+                   placeholder="Black-Cofee">
+        </div>
+        <div class="form-group">
+            <label for="price" class="pb-2">Price</label>
+            <input type="text" class="form-control mb-4" id="price" aria-describedby="emailHelp"
+                   placeholder="1999.00">
+        </div>
+        <div class="form-group">
+            <label for="quantity" class="pb-2">Quantity</label>
+            <div class="input-group mb-4" style="max-width: 150px;">
+                <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button>
+                <input type="number" class="form-control text-center" id="quantity" value="1" min="0">
+                <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+            </div>
+        </div>
+        <div class="grid text-center">
+            <button type="button" class="btn btn-primary m-2">Save</button>
+            <button type="button" class="btn btn-success m-2">Update</button>
+            <button type="button" class="btn btn-danger m-2">Delete</button>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" class="col-1">ID</th> <!-- 3 columns wide -->
+                <th scope="col" class="col-3">ITEM</th> <!-- 4 columns wide -->
+                <th scope="col" class="col-2">$</th> <!-- 4 columns wide -->
+                <th scope="col" class="col-2">QTY</th> <!-- 4 columns wide -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td>I001</td>
+                <td>Black-Cofee</td>
+                <td>2000.00</td>
+                <td>10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--Item End-->
+<!--PLace Order-->
+<section id="placeOrder" >
+    <div class="container border p-5 mb-2 bg-dark text-white" style="width: 500px">
+        <h4 class="mb-4">Place Order</h4>
+
+        <div class="form-group">
+            <label for="orderId" class="pb-2">Order ID</label>
+            <input type="text" class="form-control mb-3" id="orderId" placeholder="O001">
+        </div>
+
+        <div class="form-group">
+            <label for="customerId" class="pb-2">Customer ID</label>
+            <input type="text" class="form-control mb-3" id="customerId" placeholder="C001">
+        </div>
+
+        <div class="form-group">
+            <label for="itemId" class="pb-2">Item ID</label>
+            <input type="text" class="form-control mb-3" id="itemId" placeholder="I001">
+        </div>
+
+        <div class="form-group">
+            <label for="orderPrice" class="pb-2">Price</label>
+            <input type="text" class="form-control mb-3" id="orderPrice" placeholder="1999.00">
+        </div>
+
+        <div class="form-group">
+            <label for="quantity" class="pb-2">Quantity</label>
+            <div class="input-group mb-3" style="max-width: 150px;">
+                <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button>
+                <input type="number" class="form-control text-center" id="quantity" value="1" min="0">
+                <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="orderDate" class="pb-2">Date</label>
+            <input type="date" class="form-control mb-3" id="orderDate">
+        </div>
+
+        <div class="grid text-center">
+            <button type="button" class="btn btn-primary m-2" onclick="placeOrder()">Save</button>
+            <button type="button" class="btn btn-success m-2" onclick="updateOrder()">Update</button>
+            <button type="button" class="btn btn-danger m-2" onclick="deleteOrder()">Delete</button>
+        </div>
+    </div>
+
+    <!-- Order Table -->
+    <div class="container">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Item ID</th>
+                <th scope="col">$</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody id="orderTable">
+            <!-- New rows will be appended here -->
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--Place Order End-->
+<!--order history Start-->
+<section id="orderHistory" >
+    <div class="container mt-4">
+        <h4>Order History</h4>
+        <input type="text" class="form-control mb-3" id="searchBox" placeholder="Search by Order ID, Customer ID, or Item ID" onkeyup="searchOrders()">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Item ID</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody id="orderHistoryT">
+            <!-- Order history data will appear here -->
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--order history end-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/app.js"></script>
+</div>
+</body>
+
+</html>
