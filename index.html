@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link rel="stylesheet" href="css/style.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <meta name="description" content="">
@@ -24,8 +24,8 @@
     <meta name="theme-color" content="#fafafa">
 </head>
 
-<body class="bg-image" style="background-image:url('img/bg.webp')">
-<div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); z-index: -1;">
+<body class="bg-image" style="background-image:url('img/bg.webp');">
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
 <!--Nav Bar Start-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-2  mb-5">
     <div class="container-fluid">
@@ -39,8 +39,10 @@
             </li>
             <li class="nav-item">
                 <button type="button" class="btn btn-dark m-2" onclick="navigateTo('placeOrder')">Order</button>
-            </li><li class="nav-item">
-                <button type="button" class="btn btn-dark m-2 "onclick="navigateTo('orderHistory')">Order-History</button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark m-2 " onclick="navigateTo('orderHistory')">Order-History
+                </button>
             </li>
 
         </ul>
@@ -66,9 +68,9 @@
                    placeholder="077......">
         </div>
         <div class="grid text-center">
-            <button type="button" class="btn btn-primary m-2">Save</button>
-            <button type="button" class="btn btn-success m-2">Update</button>
-            <button type="button" class="btn btn-danger m-2">Delete</button>
+            <button type="button" class="btn btn-primary m-2" id="saveBtn">Save</button>
+            <button type="button" class="btn btn-success m-2" id="updateBtn">Update</button>
+            <button type="button" class="btn btn-danger m-2" id="deleteBtn">Delete</button>
         </div>
 
     </div>
@@ -81,13 +83,8 @@
                 <th scope="col" class="col-2">TEL</th> <!-- 4 columns wide -->
             </tr>
             </thead>
-            <tbody>
-            <tr>
+            <tbody id="customer_tBody">
 
-                <td>C001</td>
-                <td>Doe</td>
-                <td>0740025243</td>
-            </tr>
             </tbody>
         </table>
     </div>
@@ -150,7 +147,7 @@
 </section>
 <!--Item End-->
 <!--PLace Order-->
-<section id="placeOrder" >
+<section id="placeOrder">
     <div class="container border p-5 mb-2 bg-dark text-white" style="width: 500px">
         <h4 class="mb-4">Place Order</h4>
 
@@ -216,10 +213,11 @@
 </section>
 <!--Place Order End-->
 <!--order history Start-->
-<section id="orderHistory" >
+<section id="orderHistory">
     <div class="container mt-4">
         <h4>Order History</h4>
-        <input type="text" class="form-control mb-3" id="searchBox" placeholder="Search by Order ID, Customer ID, or Item ID" onkeyup="searchOrders()">
+        <input type="text" class="form-control mb-3" id="searchBox"
+               placeholder="Search by Order ID, Customer ID, or Item ID" onkeyup="searchOrders()">
         <table class="table">
             <thead class="table-dark">
             <tr>
@@ -237,10 +235,12 @@
         </table>
     </div>
 </section>
-<!--order history end-->
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/app.js"></script>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="controller/CustomerController.js"></script>
 </body>
 
 </html>
