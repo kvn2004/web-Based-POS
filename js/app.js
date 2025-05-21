@@ -1,3 +1,5 @@
+
+
 function increment() {
     const input = $('#quantity');      // jQuery selector
     input.val(parseInt(input.val()) + 1);  // Use .val() to get and set the value
